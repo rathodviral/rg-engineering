@@ -1,0 +1,280 @@
+// BEGIN : Color Variable Define
+$primary: #5160df;
+$white: #fdfdfd;
+$black: #000000;
+$gray: #f4f4f4;
+$light-gray: #dfe0e5;
+$dark-gray: #49494c;
+// END : Color Variable Define
+
+// BEGIN : MIXIN
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    -ms-border-radius: $radius;
+    border-radius: $radius;
+}
+
+// END : MIXIN
+
+* {
+    font-family: 'Poppins', sans-serif !important;
+}
+
+body {
+    background: $white;
+    margin: 0;
+    user-select: none;
+}
+
+
+// BEGIN : COMMON
+button:focus,
+button:active,
+input:focus,
+input:active,
+select:focus,
+select:active {
+    box-shadow: none !important;
+    outline: none !important;
+}
+
+a,
+a:hover,
+a:focus,
+a:active {
+    text-decoration: none;
+}
+
+h2 {
+    font-weight: 24px;
+    font-weight: 600;
+}
+
+.custom-in-control {
+    border-radius: 2px;
+    font-size: 15px;
+    line-height: 1;
+    background-color: $light-gray;
+    height: 37px;
+    font-weight: 500;
+
+    &:focus {
+        background-color: $light-gray;
+        border-color: rgba(0, 0, 0, 0.2);
+    }
+}
+
+::-webkit-input-placeholder {
+    /* Chrome/Opera/Safari */
+    font-weight: 500;
+}
+
+::-moz-placeholder {
+    /* Firefox 19+ */
+    font-weight: 500;
+}
+
+:-ms-input-placeholder {
+    /* IE 10+ */
+    font-weight: 500;
+}
+
+:-moz-placeholder {
+    /* Firefox 18- */
+    font-weight: 500;
+}
+
+// BEGIN : COMMON
+
+
+
+// BEGIN : Login Box
+.center-content {
+    display: flex;
+    display: -ms-flex;
+    display: -moz-flex;
+    display: -o-flex;
+    align-items: center;
+    height: 100vh;
+
+    .main-box {
+        display: block;
+        position: relative;
+        background-color: $gray;
+        padding: 20px 15px;
+        width: 330px;
+        height: 485px;
+        @include border-radius(10px);
+        text-align: center;
+        overflow: hidden;
+
+        // &::before {
+        //     content: '';
+        //     position: absolute;
+        //     top: 0;
+        //     left: 0;
+        //     background-color: $primary;
+        //     height: 120px;
+        //     width: 90%;
+        //     transform: skew(-80deg);
+        //     margin-top: 42px;
+        // }
+
+        .logo-bg {
+            background-color: $light-gray;
+            color: $primary;
+            @include border-radius(100px);
+            height: 130px;
+            width: 130px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 70px;
+
+            h1 {
+                font-weight: 400;
+                font-size: 46px;
+                margin: 0;
+                text-align: center;
+                letter-spacing: 2px;
+            }
+        }
+
+        .page-title {
+            font-size: 20px;
+            text-transform: uppercase;
+            margin-bottom: 40px;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-login-outline {
+            border: 1px solid $primary;
+            background-color: $white !important;
+            color: $primary !important;
+        }
+
+        .btn-login-app {
+            @include border-radius(2px);
+            background-color: $primary;
+            color: $white;
+            text-transform: uppercase;
+            font-size: 16px;
+            font-weight: 500;
+            overflow: hidden;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.8);
+            -webkit-box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.8);
+            -moz-box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.8);
+            -ms-box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.8);
+            -o-box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.8);
+
+            &:focus {
+                box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.8) !important;
+                -webkit-box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.8) !important;
+                -moz-box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.8) !important;
+                -ms-box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.8) !important;
+                -o-box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.8) !important;
+            }
+        }
+
+        .forgot-link {
+            color: $black;
+            font-size: 14px;
+            font-weight: 500;
+            margin-top: 12px;
+            display: inline-block;
+
+            &:hover {
+                color: $primary;
+            }
+        }
+    }
+}
+
+// END : Login Box
+
+// BEGIN : MODAL
+#otpModal {
+    .otp-modal-center {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%) !important;
+        -webkit-transform: translate(-50%, -50%) !important;
+        -moz-transform: translate(-50%, -50%) !important;
+        -ms-transform: translate(-50%, -50%) !important;
+        -o-transform: translate(-50%, -50%) !important;
+        margin: auto;
+        width: 270px;
+        max-width: 270px;
+
+        .otp-motal-title {
+            font-size: 20px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+            margin-top: 3px;
+        }
+
+        .otp-custom-control {
+            border: none;
+            border-bottom: 2px solid $dark-gray;
+            background-color: transparent !important;
+            border-radius: 0;
+            text-align: center;
+            font-weight: normal;
+            background-color: $light-gray;
+            font-weight: 500;
+        }
+
+        .btn-confirm-otp {
+            @include border-radius(2px);
+            background-color: $primary;
+            color: $white;
+            text-transform: uppercase;
+            width: 80%;
+            overflow: hidden;
+            font-weight: 500;
+            display: block;
+            margin: 15px auto 25px;
+            letter-spacing: 0.5px;
+            box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.8);
+            -webkit-box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.8);
+            -moz-box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.8);
+            -ms-box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.8);
+            -o-box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.8);
+
+            &:focus {
+                box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.8) !important;
+                -webkit-box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.8) !important;
+                -moz-box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.8) !important;
+                -ms-box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.8) !important;
+                -o-box-shadow: 0 2px 4px -1px rgba(0, 0, 0, 0.8) !important;
+            }
+        }
+    }
+}
+
+// END : MODAL
+.flag-dropdown{
+    top: 10.5%!important;
+}
+.intl-tel-input input {
+    height: 37px;
+    .flag-dropdown{
+        top: 10%!important;
+    }
+}
+
+
+
+// BEGIN : MEDIA QUERY
+@media only screen and (max-width: 440px) {
+    .main-box {
+        width: 100% !important;
+    }
+}
+
+// END : MEDIA QUERY
