@@ -19,14 +19,14 @@
                               </div>
                               <div class="col-7 pl-0">
                                   <div class="form-group">
-                                      <input type="text" class="form-control custom-in-control" placeholder="ENTER MOBILE"
+                                      <input type="number" [(ngModel)]="mobileNumber" class="form-control custom-in-control" placeholder="ENTER MOBILE"
                                           id="mobile">
                                   </div>
                               </div>
                           </div>
                       </div>
                       <div class="col-12 text-center pt-3 mt-5">
-                          <button type="button" class="btn w-100 btn-login-app" data-toggle="modal" data-target="#otpModal">verify
+                          <button type="button" [disabled]="!mobileNumber" (click)="submitMobile()" class="btn w-100 btn-login-app" data-toggle="modal" data-target="#otpModal">verify
                               mobile</button>
                       </div>
                   </div>
@@ -48,20 +48,20 @@
                           <h2 class="otp-motal-title">enter code</h2>
                       </div>
                       <div class="col">
-                          <input type="text" maxlength="1" tabindex="1" class="form-control otp-custom-control" id="otp1">
+                          <input type="text" [(ngModel)]="otp1" maxlength="1" tabindex="1" class="form-control otp-custom-control" id="otp1">
                       </div>
                       <div class="col">
-                          <input type="text" maxlength="1" tabindex="2" class="form-control otp-custom-control" id="otp2">
+                          <input type="text" [(ngModel)]="otp2" maxlength="1" tabindex="2" class="form-control otp-custom-control" id="otp2">
                       </div>
                       <div class="col">
-                          <input type="text" maxlength="1" tabindex="3" class="form-control otp-custom-control" id="otp3">
+                          <input type="text" [(ngModel)]="otp3" maxlength="1" tabindex="3" class="form-control otp-custom-control" id="otp3">
                       </div>
                       <div class="col">
-                          <input type="text" maxlength="1" tabindex="4" class="form-control otp-custom-control" id="otp4">
+                          <input type="text" [(ngModel)]="otp4" maxlength="1" tabindex="4" class="form-control otp-custom-control" id="otp4">
                       </div>
                   </div>
               </div>
-              <button type="button" class="btn btn btn-confirm-otp" data-dismiss="modal">confirm</button>
+              <button type="button" class="btn btn btn-confirm-otp" (click)="confirmNumber()" >confirm</button>
           </div>
       </div>
   </div>
