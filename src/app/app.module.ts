@@ -5,6 +5,8 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { OtpModule } from 'src/app/otp/otp.module';
+import { LoginModule } from 'src/app/login/login.module';
+import { RegisterModule } from 'src/app/register/register.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { OtpModule } from 'src/app/otp/otp.module';
     AppRoutingModule,
     SharedModule,
     NgbModule,
-    OtpModule
+    OtpModule,
+    LoginModule,
+    RegisterModule
   ],
   providers: [],
   bootstrap: [AppComponent]
