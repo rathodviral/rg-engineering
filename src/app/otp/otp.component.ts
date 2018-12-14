@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { map } from 'rxjs/operators';
+import { HttpHeaders, HttpClient, HttpParams } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-otp',
@@ -13,12 +18,13 @@ export class OtpComponent implements OnInit {
   otp2;
   otp3;
   otp4;
-  constructor(private toastrService: ToastrService) { }
+  constructor(private http: HttpClient,private toastrService: ToastrService) { }
 
   ngOnInit() {
   }
 
   submitMobile() {
+    console.log(this.mobileNumber)
     if(this.mobileNumber) {
       const otp = this.getOTP();
       this.toastrService.success(otp.toString());
@@ -40,5 +46,20 @@ export class OtpComponent implements OnInit {
       this.toastrService.error('Try Again!');
     }
   }
-
+  private formatErrors(error: any) {
+    window.alert('Something went wrong, please try again later !');
+    return throwError(error.error);
+}
+  get(path: string, headers?): Observable<any> {
+    return this.http
+        .get(path)
+        .pipe(catchError(this.formatErrors));
+}
+  getAvailableTeams(mobileNo):Observable<any>{
+    return this.get(`http://berkshire-weddings.co.uk/api/v1/phone/client/phone=${mobileNo}&api_lock=30501a77780a82ea0e7d9f6f957f2854`).pipe(
+      map(data => {
+          return data;
+      })
+  );
+ } 
 }

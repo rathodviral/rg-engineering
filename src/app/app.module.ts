@@ -7,6 +7,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
 import { OtpModule } from 'src/app/otp/otp.module';
 import { LoginModule } from 'src/app/login/login.module';
 import { RegisterModule } from 'src/app/register/register.module';
+import {HttpClientModule} from '@angular/common/http';
+import { AdminModule } from './admin/admin.module';
 
 @NgModule({
   declarations: [
@@ -19,9 +21,12 @@ import { RegisterModule } from 'src/app/register/register.module';
     NgbModule,
     OtpModule,
     LoginModule,
-    RegisterModule
+    RegisterModule,
+    HttpClientModule,
+    AdminModule
+
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
