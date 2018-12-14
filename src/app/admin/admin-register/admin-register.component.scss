@@ -1,0 +1,59 @@
+.register-box {
+  height: 180px;
+  overflow-y: auto;
+
+  .title {
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+    text-transform: capitalize;
+    color: #212529;
+  }
+
+  .cst-accordian {
+    .card {
+      background: none;
+      border: none;
+      text-align: left;
+
+      .card-header {
+        button {
+          position: relative;
+          display: block;
+          width: 100%;
+
+          &:hover,
+          &:focus {
+            text-decoration: none;
+          }
+
+          &:before {
+            content: '';
+            position: absolute;
+            right: 7px;
+            top: 16px;
+            width: 14px;
+            height: 2px;
+            background-color: #212529;
+          }
+
+          &:after {
+            content: '';
+            position: absolute;
+            right: 13px;
+            top: 9px;
+            height: 16px;
+            width: 2px;
+            background-color: transparent;
+          }
+        }
+
+        button.collapsed {
+          &:after {
+            background-color: #212529;
+          }
+        }
+      }
+    }
+  }
+}
